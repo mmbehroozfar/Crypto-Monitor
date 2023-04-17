@@ -1,6 +1,6 @@
 package com.mmb.cryptomonitor.di
 
-import com.mmb.domain.di.IoDispatcher
+import com.mmb.domain.base.IoDispatcher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

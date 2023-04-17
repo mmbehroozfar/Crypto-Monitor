@@ -1,4 +1,4 @@
-package com.mmb.domain.di
+package com.mmb.domain.base
 
 import javax.inject.Qualifier
 

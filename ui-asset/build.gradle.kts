@@ -3,10 +3,11 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
-    namespace = "com.mmb.domain"
+    namespace = "com.mmb.ui.asset"
     compileSdk = 33
 
     defaultConfig {
@@ -34,10 +35,20 @@ android {
     kotlin {
         jvmToolchain(17)
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
+    implementation(project(":domain"))
+
     implementation("androidx.core:core-ktx:1.10.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
+    implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation("com.google.android.material:material:1.8.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
     implementation("com.google.dagger:hilt-android:2.45")

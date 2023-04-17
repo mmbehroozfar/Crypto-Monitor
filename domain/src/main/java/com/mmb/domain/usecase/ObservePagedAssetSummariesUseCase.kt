@@ -2,8 +2,8 @@ package com.mmb.domain.usecase
 
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
+import com.mmb.domain.base.IoDispatcher
 import com.mmb.domain.base.SubjectUseCase
-import com.mmb.domain.di.IoDispatcher
 import com.mmb.domain.model.AssetSummary
 import com.mmb.domain.repository.AssetRepository
 import javax.inject.Inject

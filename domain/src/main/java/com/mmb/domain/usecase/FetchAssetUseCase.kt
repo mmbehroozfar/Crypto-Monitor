@@ -1,8 +1,8 @@
 package com.mmb.domain.usecase
 
+import com.mmb.domain.base.IoDispatcher
 import com.mmb.domain.base.Result
 import com.mmb.domain.base.ResultUseCase
-import com.mmb.domain.di.IoDispatcher
 import com.mmb.domain.repository.AssetRepository
 import javax.inject.Inject
 import kotlinx.coroutines.CoroutineDispatcher
