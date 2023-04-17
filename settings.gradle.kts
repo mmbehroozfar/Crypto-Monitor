@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Crypto Monitor"
 include(":app")
+include(":data")
