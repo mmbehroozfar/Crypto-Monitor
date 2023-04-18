@@ -1,5 +1,6 @@
 package com.mmb.ui.asset
 
+import com.mmb.domain.model.AssetSummary
 import com.mmb.ui.asset.model.Asset
 import com.mmb.domain.model.Asset as DomainAsset
 
@@ -39,6 +40,13 @@ object MockData {
         volume1mthUsd = 0.0,
         rate = 0.0,
         time = "",
+    )
+
+    val fakeAssetSummary = AssetSummary(
+        id = "BTC",
+        name = "",
+        icon = "",
+        isFavorite = false,
     )
 
 }
