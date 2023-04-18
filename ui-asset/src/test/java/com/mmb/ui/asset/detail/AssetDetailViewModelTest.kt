@@ -69,9 +69,6 @@ class AssetDetailViewModelTest {
         every {
             assetMapper(MockData.fakeDomainAsset)
         } returns MockData.fakeAsset
-        coEvery {
-            fetchAssetExchangeRateUseCase(id)
-        } returns Result.Success(Unit)
 
         val viewModel = createViewModel(id)
 
@@ -80,39 +77,14 @@ class AssetDetailViewModelTest {
 
     @Test
     fun afterInitializingLoadingShouldBeFalse() = runTest {
-        val id = "ETH"
-        every {
-            getAssetUseCase(id)
-        } returns flowOf(MockData.fakeDomainAsset)
-        every {
-            assetMapper(MockData.fakeDomainAsset)
-        } returns MockData.fakeAsset
-        coEvery {
-            fetchAssetExchangeRateUseCase(id)
-        } returns Result.Success(Unit)
-
-        val viewModel = createViewModel(id)
+        val viewModel = createViewModel()
 
         Truth.assertThat(viewModel.isLoading.value).isFalse()
     }
 
     @Test
     fun fetchAllDataShouldCallUseCases() = runTest {
-        every {
-            getAssetUseCase(any())
-        } returns flowOf(MockData.fakeDomainAsset)
-        every {
-            assetMapper(MockData.fakeDomainAsset)
-        } returns MockData.fakeAsset
-        coEvery {
-            fetchAssetExchangeRateUseCase(any())
-        } returns Result.Success(Unit)
-        coEvery {
-            fetchAssetUseCase(any())
-        } returns Result.Success(Unit)
-
         val viewModel = createViewModel()
-
         viewModel.fetchAllData()
 
         coVerify(exactly = 1) { fetchAssetUseCase(any()) }
@@ -121,12 +93,6 @@ class AssetDetailViewModelTest {
 
     @Test
     fun failFetchShouldEmitError() = runTest {
-        every {
-            getAssetUseCase(any())
-        } returns flowOf(MockData.fakeDomainAsset)
-        every {
-            assetMapper(MockData.fakeDomainAsset)
-        } returns MockData.fakeAsset
         coEvery {
             fetchAssetExchangeRateUseCase(any())
         } returns Result.Success(Unit)
