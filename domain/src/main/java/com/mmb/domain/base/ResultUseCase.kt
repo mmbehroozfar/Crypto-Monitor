@@ -7,7 +7,11 @@ abstract class ResultUseCase<P, R>(private val coroutineDispatcher: CoroutineDis
 
     suspend operator fun invoke(parameter: P): Result<R> {
         return withContext(coroutineDispatcher) {
-            execute(parameter)
+            try {
+                execute(parameter)
+            } catch (e: Exception) {
+                Result.Error(e)
+            }
         }
     }
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="search">Search</string>
+    <string name="favorite">Favorite</string>
+    <string name="more">More</string>
+    <string name="assets">Assets</string>
+    <string name="no_data_available">No Data Available!</string>
+    <string name="unable_to_fetch_new_data">Unable to fetch new data!</string>
+    <string name="last_fetch_data">Last fetch: %s</string>
+    <string name="never">Never!</string>
+</resources>
