@@ -1,6 +1,7 @@
 package com.mmb.data.datasource.remote.di
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.mmb.data.datasource.remote.interceptor.AuthenticationInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -34,18 +35,23 @@ internal object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(client: OkHttpClient): Retrofit = Retrofit.Builder()
+    fun provideRetrofit(
+        client: OkHttpClient,
+        converterFactory: Converter.Factory,
+    ): Retrofit = Retrofit.Builder()
         .baseUrl("https://rest.coinapi.io/")
+        .addConverterFactory(converterFactory)
         .client(client)
         .build()
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(authenticationInterceptor: AuthenticationInterceptor): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         return OkHttpClient.Builder()
-            .addInterceptor(interceptor)
+//            .addInterceptor(interceptor)
+            .addInterceptor(authenticationInterceptor)
             .build()
     }
 

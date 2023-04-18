@@ -21,7 +21,7 @@ interface AssetLocalDataSource {
 
     suspend fun insertFavoriteAsset(entity: FavoriteAssetEntity)
 
-    suspend fun deleteFavoriteAsset(entity: FavoriteAssetEntity)
+    suspend fun deleteFavoriteAsset(symbol: String)
 
     fun observePagedAssets(): PagingSource<Int, AssetSummaryEntity>
 

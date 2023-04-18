@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "asset_icons")
 data class AssetIconEntity(
     @PrimaryKey
-    @ColumnInfo(name = "asset_id")
-    val assetId: String,
+    @ColumnInfo(name = "id")
+    val id: String,
     @ColumnInfo(name = "url")
     val url: String,
 )

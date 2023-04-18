@@ -9,7 +9,7 @@ class AssetIconMapper @Inject constructor() {
     operator fun invoke(type: AssetIconResponse): AssetIconEntity {
         return type.let {
             AssetIconEntity(
-                assetId = it.assetId,
+                id = it.assetId,
                 url = it.url,
             )
         }

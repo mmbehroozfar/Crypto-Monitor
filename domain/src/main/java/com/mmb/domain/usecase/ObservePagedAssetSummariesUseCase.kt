@@ -24,14 +24,16 @@ class ObservePagedAssetSummariesUseCase @Inject constructor(
         initialLoadSize = 20,
     )
 
-    override suspend fun createObservable(params: Params): Flow<PagingData<AssetSummary>> = when {
-        params.searchQuery.isNotEmpty() -> repository.observePagedAssetsBySearch(
-            pagingConfig,
-            params.searchQuery
-        )
+    override suspend fun createObservable(params: Params): Flow<PagingData<AssetSummary>> {
+        return when {
+            params.searchQuery.isNotEmpty() -> repository.observePagedAssetsBySearch(
+                pagingConfig,
+                params.searchQuery
+            )
 
-        params.favoriteFilterEnable -> repository.observePagedFavoriteAssets(pagingConfig)
-        else -> repository.observePagedAssets(pagingConfig)
+            params.favoriteFilterEnable -> repository.observePagedFavoriteAssets(pagingConfig)
+            else -> repository.observePagedAssets(pagingConfig)
+        }
     }
 
     data class Params(

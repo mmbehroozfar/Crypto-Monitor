@@ -2,31 +2,39 @@ package com.mmb.data.datasource.local.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "assets")
+@Entity(
+    tableName = "assets",
+    indices = [
+        Index(value = ["symbol"], unique = true)
+    ]
+)
 data class AssetEntity(
     @PrimaryKey
     @ColumnInfo(name = "id")
-    val id: String,
+    val id: Int,
+    @ColumnInfo(name = "symbol")
+    val symbol: String,
     @ColumnInfo(name = "name")
     val name: String,
     @ColumnInfo(name = "data_end")
-    val dataEnd: String,
+    val dataEnd: String?,
     @ColumnInfo(name = "data_orderbook_end")
-    val dataOrderbookEnd: String,
+    val dataOrderbookEnd: String?,
     @ColumnInfo(name = "data_orderbook_start")
-    val dataOrderbookStart: String,
+    val dataOrderbookStart: String?,
     @ColumnInfo(name = "data_quote_end")
-    val dataQuoteEnd: String,
+    val dataQuoteEnd: String?,
     @ColumnInfo(name = "data_quote_start")
-    val dataQuoteStart: String,
+    val dataQuoteStart: String?,
     @ColumnInfo(name = "data_start")
-    val dataStart: String,
+    val dataStart: String?,
     @ColumnInfo(name = "data_trade_end")
-    val dataTradeEnd: String,
+    val dataTradeEnd: String?,
     @ColumnInfo(name = "data_trade_start")
-    val dataTradeStart: String,
+    val dataTradeStart: String?,
     @ColumnInfo(name = "volume_1day_usd")
     val volume1dayUsd: Double,
     @ColumnInfo(name = "volume_1hrs_usd")

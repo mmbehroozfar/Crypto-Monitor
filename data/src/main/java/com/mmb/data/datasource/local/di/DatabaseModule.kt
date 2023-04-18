@@ -30,12 +30,6 @@ internal object DatabaseModule {
 
     @Provides
     @Singleton
-    fun provideAssetDaoDao(
-        db: AssetRoomDatabase,
-    ) = db.assetDao()
-
-    @Provides
-    @Singleton
     fun provideAssetIconDaoDao(
         db: AssetRoomDatabase,
     ) = db.assetIconDao()

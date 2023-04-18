@@ -9,7 +9,7 @@ class AssetWithExchangeRateMapper @Inject constructor() {
     operator fun invoke(type: AssetWithExchangeRate): Asset {
         return type.let {
             Asset(
-                id = it.assetEntity.id,
+                id = it.assetEntity.symbol,
                 name = it.assetEntity.name,
                 dataEnd = it.assetEntity.dataEnd,
                 dataOrderbookEnd = it.assetEntity.dataOrderbookEnd,

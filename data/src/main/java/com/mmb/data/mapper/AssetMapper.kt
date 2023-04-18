@@ -9,13 +9,14 @@ class AssetMapper @Inject constructor() {
     operator fun invoke(type: AssetResponse): AssetEntity {
         return type.let {
             AssetEntity(
-                id = it.assetId,
-                name = it.dataEnd,
-                dataEnd = it.dataOrderbookEnd,
-                dataOrderbookEnd = it.dataOrderbookStart,
-                dataOrderbookStart = it.dataQuoteEnd,
-                dataQuoteEnd = it.dataQuoteStart,
-                dataQuoteStart = it.dataStart,
+                id = it.assetId.hashCode(),
+                symbol = it.assetId,
+                name = it.name,
+                dataEnd = it.dataEnd,
+                dataOrderbookEnd = it.dataOrderbookEnd,
+                dataOrderbookStart = it.dataOrderbookStart,
+                dataQuoteEnd = it.dataQuoteEnd,
+                dataQuoteStart = it.dataQuoteStart,
                 dataStart = it.dataStart,
                 dataTradeEnd = it.dataTradeEnd,
                 dataTradeStart = it.dataTradeStart,

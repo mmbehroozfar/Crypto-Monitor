@@ -6,7 +6,7 @@ import androidx.room.Relation
 data class AssetWithExchangeRate(
     @Embedded val assetEntity: AssetEntity,
     @Relation(
-        parentColumn = "id",
+        parentColumn = "symbol",
         entityColumn = "asset_id_base",
     )
     val exchangeRateEntity: ExchangeRateEntity?,

@@ -1,4 +1,4 @@
-package com.mmb.data.extension
+package com.mmb.domain.extension
 
 import androidx.paging.PagingData
 import androidx.paging.map

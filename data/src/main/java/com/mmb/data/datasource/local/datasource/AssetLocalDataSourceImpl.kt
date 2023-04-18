@@ -34,8 +34,8 @@ class AssetLocalDataSourceImpl @Inject constructor(
     override suspend fun insertFavoriteAsset(entity: FavoriteAssetEntity) =
         favoriteAssetDao.insert(entity)
 
-    override suspend fun deleteFavoriteAsset(entity: FavoriteAssetEntity) =
-        favoriteAssetDao.delete(entity)
+    override suspend fun deleteFavoriteAsset(symbol: String) =
+        favoriteAssetDao.delete(symbol)
 
     override fun observePagedAssets(): PagingSource<Int, AssetSummaryEntity> =
         assetDao.observePagedAssets()

@@ -6,12 +6,12 @@ import androidx.paging.PagingData
 import com.mmb.data.datasource.local.datasource.AssetLocalDataSource
 import com.mmb.data.datasource.local.model.FavoriteAssetEntity
 import com.mmb.data.datasource.remote.datasource.AssetRemoteDataSource
-import com.mmb.data.extension.mapPagingData
 import com.mmb.data.mapper.AssetIconMapper
 import com.mmb.data.mapper.AssetMapper
 import com.mmb.data.mapper.AssetSummaryMapper
 import com.mmb.data.mapper.AssetWithExchangeRateMapper
 import com.mmb.data.mapper.ExchangeRateMapper
+import com.mmb.domain.extension.mapPagingData
 import com.mmb.domain.model.Asset
 import com.mmb.domain.model.AssetSummary
 import com.mmb.domain.repository.AssetRepository
@@ -62,11 +62,11 @@ class AssetRepositoryImpl @Inject constructor(
     }
 
     override suspend fun addAssetToFavorite(id: String) {
-        localDataSource.insertFavoriteAsset(FavoriteAssetEntity(id))
+        localDataSource.insertFavoriteAsset(FavoriteAssetEntity(symbol = id))
     }
 
     override suspend fun removeAssetFromFavorite(id: String) {
-        localDataSource.deleteFavoriteAsset(FavoriteAssetEntity(id))
+        localDataSource.deleteFavoriteAsset(id)
     }
 
     override fun observePagedAssets(pagingConfig: PagingConfig): Flow<PagingData<AssetSummary>> =

@@ -8,25 +8,23 @@ data class AssetResponse(
     @SerialName("asset_id")
     val assetId: String,
     @SerialName("data_end")
-    val dataEnd: String,
+    val dataEnd: String? = null,
     @SerialName("data_orderbook_end")
-    val dataOrderbookEnd: String,
+    val dataOrderbookEnd: String? = null,
     @SerialName("data_orderbook_start")
-    val dataOrderbookStart: String,
+    val dataOrderbookStart: String? = null,
     @SerialName("data_quote_end")
-    val dataQuoteEnd: String,
+    val dataQuoteEnd: String? = null,
     @SerialName("data_quote_start")
-    val dataQuoteStart: String,
+    val dataQuoteStart: String? = null,
     @SerialName("data_start")
-    val dataStart: String,
+    val dataStart: String? = null,
     @SerialName("data_symbols_count")
     val dataSymbolsCount: Int,
     @SerialName("data_trade_end")
-    val dataTradeEnd: String,
+    val dataTradeEnd: String? = null,
     @SerialName("data_trade_start")
-    val dataTradeStart: String,
-    @SerialName("id_icon")
-    val idIcon: String,
+    val dataTradeStart: String? = null,
     @SerialName("name")
     val name: String,
     @SerialName("type_is_crypto")
