@@ -82,13 +82,6 @@ class AssetListFragment : Fragment(R.layout.fragment_asset_list), MenuProvider {
         }
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.isSearchModeEnable.collect {
-
-                }
-            }
-        }
-        lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.showError.collect {
                     Toast.makeText(
                         requireContext(),
