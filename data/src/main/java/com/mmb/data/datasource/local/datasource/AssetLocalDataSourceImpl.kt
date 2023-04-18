@@ -21,20 +21,21 @@ class AssetLocalDataSourceImpl @Inject constructor(
     private val favoriteAssetDao: FavoriteAssetDao,
 ) : AssetLocalDataSource {
 
-    override suspend fun insertAsset(entity: AssetEntity) = assetDao.insertAsset(entity)
+    override suspend fun insertAsset(entity: AssetEntity): Unit = assetDao.insertAsset(entity)
 
-    override suspend fun insertAssets(entities: List<AssetEntity>) = assetDao.insertAsset(entities)
+    override suspend fun insertAssets(entities: List<AssetEntity>): Unit =
+        assetDao.insertAsset(entities)
 
-    override suspend fun insertAssetsIcons(entities: List<AssetIconEntity>) =
+    override suspend fun insertAssetsIcons(entities: List<AssetIconEntity>): Unit =
         assetIconDao.insert(entities)
 
-    override suspend fun insertExchangeRate(entity: ExchangeRateEntity) =
+    override suspend fun insertExchangeRate(entity: ExchangeRateEntity): Unit =
         exchangeRateDao.insert(entity)
 
-    override suspend fun insertFavoriteAsset(entity: FavoriteAssetEntity) =
+    override suspend fun insertFavoriteAsset(entity: FavoriteAssetEntity): Unit =
         favoriteAssetDao.insert(entity)
 
-    override suspend fun deleteFavoriteAsset(symbol: String) =
+    override suspend fun deleteFavoriteAsset(symbol: String): Unit =
         favoriteAssetDao.delete(symbol)
 
     override fun observePagedAssets(): PagingSource<Int, AssetSummaryEntity> =
