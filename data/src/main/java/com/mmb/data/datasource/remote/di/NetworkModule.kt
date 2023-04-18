@@ -50,7 +50,7 @@ internal object NetworkModule {
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         return OkHttpClient.Builder()
-//            .addInterceptor(interceptor)
+            .addInterceptor(interceptor)
             .addInterceptor(authenticationInterceptor)
             .build()
     }

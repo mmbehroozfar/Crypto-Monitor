@@ -18,8 +18,8 @@ class DateMapper @Inject constructor() {
             Locale.getDefault()
         )
 
-        val date = inputFormat.parse(type)
         return try {
+            val date = inputFormat.parse(type)
             if (date != null) outputFormat.format(date) else ""
         } catch (e: Exception) {
             ""

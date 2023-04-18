@@ -23,6 +23,7 @@ class AssetWithExchangeRateMapper @Inject constructor() {
                 volume1hrsUsd = it.assetEntity.volume1hrsUsd,
                 volume1mthUsd = it.assetEntity.volume1mthUsd,
                 rate = it.exchangeRateEntity?.rate ?: 0.0,
+                time = it.exchangeRateEntity?.time ?: "",
             )
         }
     }

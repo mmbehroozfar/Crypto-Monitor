@@ -10,6 +10,7 @@ abstract class ResultUseCase<P, R>(private val coroutineDispatcher: CoroutineDis
             try {
                 execute(parameter)
             } catch (e: Exception) {
+                e.printStackTrace()
                 Result.Error(e)
             }
         }

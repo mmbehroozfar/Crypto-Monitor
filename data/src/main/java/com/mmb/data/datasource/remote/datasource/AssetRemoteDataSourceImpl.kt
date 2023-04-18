@@ -9,7 +9,7 @@ class AssetRemoteDataSourceImpl @Inject constructor(
 
     override suspend fun getAllAssets() = apiService.getAllAssets()
 
-    override suspend fun getAsset(id: String) = apiService.getAsset(id)
+    override suspend fun getAsset(id: String) = apiService.getAsset(id).first()
 
     override suspend fun getAllAssetsIcons() = apiService.getAllAssetsIcons()
 

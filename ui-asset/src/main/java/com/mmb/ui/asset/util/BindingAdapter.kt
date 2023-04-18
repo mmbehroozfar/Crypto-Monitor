@@ -10,6 +10,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import coil.load
 import com.google.android.material.appbar.MaterialToolbar
 import com.mmb.ui.asset.R
+import com.mmb.ui.asset.model.Asset
 import com.mmb.ui.asset.model.AssetSummary
 import java.text.SimpleDateFormat
 import java.util.Calendar
@@ -76,3 +77,37 @@ fun TextView.setLastFetchedData(value: Long) {
 
     text = context.getString(R.string.last_fetch_data, time)
 }
+
+@BindingAdapter("setAssetDetail")
+fun TextView.setAssetDetail(asset: Asset) {
+    text = buildString {
+        append("Name: ${asset.name.dashIfEmpty()}\n")
+        append("Data quote start: ${asset.dataQuoteStart.dashIfEmpty()}\n")
+        append("Data quote end: ${asset.dataQuoteEnd.dashIfEmpty()}\n")
+        append("Data orderbook start: ${asset.dataOrderbookStart.dashIfEmpty()}\n")
+        append("Data orderbook end: ${asset.dataOrderbookEnd.dashIfEmpty()}\n")
+        append("Data trade end: ${asset.dataTradeStart.dashIfEmpty()}\n")
+        append("Data trade end: ${asset.dataTradeEnd.dashIfEmpty()}\n")
+        append("Volume 1 hour: ${asset.volume1hrsUsd.dashIfZero()} USD\n")
+        append("Volume 1 day: ${asset.volume1dayUsd.dashIfZero()} USD\n")
+        append("Volume 1 month: ${asset.volume1mthUsd.dashIfZero()} USD\n")
+        append("Data start date: ${asset.dataStart.dashIfEmpty()}\n")
+        append("Data end date: ${asset.dataEnd.dashIfEmpty()}")
+    }
+}
+
+@BindingAdapter("setExchangeDetail")
+fun TextView.setExchangeDetail(asset: Asset) {
+    text = buildString {
+        append("Time: ${asset.time.dashIfEmpty()}\n")
+        append("Rate: ${asset.rate.dashIfZero()} EUR")
+    }
+}
+
+private fun String.dashIfEmpty(): String = this.takeIf { it.isNotEmpty() } ?: " - "
+
+private fun Double.dashIfZero() = this.takeIf { it != 0.0 }?.toString() ?: " - "
+
+
+
+

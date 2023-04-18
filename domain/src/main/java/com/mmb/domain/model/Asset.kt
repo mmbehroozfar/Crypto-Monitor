@@ -15,4 +15,5 @@ data class Asset(
     val volume1hrsUsd: Double,
     val volume1mthUsd: Double,
     val rate: Double,
+    val time: String,
 )

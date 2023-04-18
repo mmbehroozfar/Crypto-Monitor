@@ -12,7 +12,7 @@ interface AssetApiService {
     suspend fun getAllAssets(): List<AssetResponse>
 
     @GET("v1/assets/{id}")
-    suspend fun getAsset(@Path("id") id: String): AssetResponse
+    suspend fun getAsset(@Path("id") id: String): List<AssetResponse>
 
     @GET("v1/assets/icons/32")
     suspend fun getAllAssetsIcons(): List<AssetIconResponse>
