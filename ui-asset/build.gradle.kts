@@ -59,6 +59,11 @@ dependencies {
     implementation("androidx.paging:paging-common-ktx:3.1.1")
 
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.4")
+    testImplementation("com.google.truth:truth:1.1.3")
+    testImplementation("io.mockk:mockk-android:1.13.4")
+    testImplementation("io.mockk:mockk-agent:1.13.4")
+    testImplementation("app.cash.turbine:turbine:0.10.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 }
