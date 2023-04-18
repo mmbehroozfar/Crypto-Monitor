@@ -1,6 +1,6 @@
 # Crypto Monitor 
 
-<img src="https://raw.githubusercontent.com/mmbehroozfar/Crypto-Monitor/master/pictures/preview.gif" alt="Logo" align="right">
+<img src="https://github.com/mmbehroozfar/Crypto-Monitor/blob/master/pictures/preview.gif?raw=true" alt="Logo" align="right" height="600">
 
 This app allows users to track crypto currency assets. It provides the following features:
 
@@ -23,6 +23,7 @@ Here is a list of technologies and tools that is used in this project.
 - Hilt for Dependency Injection: Hilt is used for dependency injection, making the app modular and easier to manage.
 - Gradle Kotlin DSL: The project uses Gradle Kotlin DSL for build configuration, which provides a more concise and powerful way to configure the build.
 - Unit Testing: Some classes in the app are unit tested using the Mockk library for mocking dependencies.
+- Coil: Used Coil for loading images.
 
 # Solution
 
