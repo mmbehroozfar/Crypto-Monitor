@@ -74,6 +74,7 @@ dependencies {
     implementation("androidx.room:room-ktx:2.5.1")
     implementation("androidx.room:room-paging:2.5.1")
     kapt("androidx.room:room-compiler:2.5.1")
+    implementation("androidx.datastore:datastore-preferences:1.1.0-alpha04")
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
